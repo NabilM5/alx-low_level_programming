@@ -1,5 +1,2 @@
 #!/bin/bash
-
-CFILE=$CFILE
-cpp -E $CFILE > main.c
-cat main.c 
+CFILE=$CFILE | cpp -E $CFILE > main.c
