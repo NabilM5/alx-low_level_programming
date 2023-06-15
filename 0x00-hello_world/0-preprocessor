@@ -1,2 +1,3 @@
 #!/bin/bash
-CFILE=$CFILE | cpp -E $CFILE > main.c
+#!/bin/bash
+gcc $CFILE -E -o c 
