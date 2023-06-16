@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+/**
+  * main - function includes a description of the return value.
+  *
+  * Return: 0 on successful execution
+  */
