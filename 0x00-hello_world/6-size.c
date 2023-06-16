@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 /**
-* main - function returns an integer value.
-*
-* return: return to 0 means executed successfull and returns and exit status.
-*/
+  * main - function includes a description of the return value.
+  *
+  * Return: 0 on successful execution
+  */
 int main(void)
 {
 	printf("Size of a char: %lu byte(s)\n", sizeof(char));
@@ -13,6 +13,6 @@ int main(void)
 	printf("Size of a long long int: %lu byte(s)\n", sizeof(long long int));
 	printf("Size of a float: %lu byte(s)\n", sizeof(float));
 
-	return 0;
+	return (0);
 }
 
