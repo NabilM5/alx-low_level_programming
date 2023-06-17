@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
-  * main - entry point
-  *
-  * return: to 0 successful
+  * main - The entry point of the program
+  * prints all possible different combinations of two digits
+  * Return: returns 0 to indicate successful execution
   */
 int main(void)
 {
