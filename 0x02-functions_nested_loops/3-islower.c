@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * description: 
+ * _islower - print lowercase character 
  *
- * _islower - print lowercase character
+ * @c: checks input 
  *
  * Return: to 1 successful
  */
