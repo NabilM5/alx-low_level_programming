@@ -1,6 +1,8 @@
 #include "main.h"
 
 /**
+ * description: 
+ *
  * _islower - print lowercase character
  *
  * Return: to 1 successful
@@ -8,6 +10,6 @@
 int _islower(int c)
 {
 	if (c >= 97 && c <= 122)
-		returni (1);
+		return (1);
 	return (0);
 }
