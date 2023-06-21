@@ -3,15 +3,19 @@
 /**
  * print_alphabet_x10 - print the alphabet 10 time
  *
+ * Return: to 0 successful
  */
 void print_alphabet_x10(void)
 {
-	int i, cha;
+	int i;
+	int j;
 
-	for (i = 0; i <= 9; i++)
+	for (j = 1; i <= 10; i++)
 	{
-		for (cha = 'a'; cha <= "z"; cha++)
-			_putchar(cha);
+		for (j = 97; j <= 122; j++)
+		{
+			_putchar(j);
+		}
 		_putchar('\n');
 	}
 }
