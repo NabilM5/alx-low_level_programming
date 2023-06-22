@@ -3,7 +3,7 @@
 /**
  * _isupper - the function that checks for uppercase character.
  *
- * @c: represents the character that you want to check if it is uppercase or not.
+ * @c: to check if it is uppercase or not.
  *
  * Return: to 1 if c uppercase and to 0 otherwise.
  */
