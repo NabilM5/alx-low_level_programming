@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * _strchr - Gets the length of a prefix substring.
+ * _strchr - Locates a character in a string.
  *
  * @s: The string to be searched.
  *
- * @c: The prefix to be measured.
+ * @c: The character to be located.
  *
- * Return: The number of b (bytes) in s which
- *         consist only of b from accept.
+ * Return: If c is found - a pointer to the first occurence.
+ *         If c is not found - NULL
  */
 char *_strchr(char *s, char c)
 {
