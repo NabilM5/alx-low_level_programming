@@ -1,26 +1,22 @@
 #include "main.h"
 
 /**
- * factorial - find factorial n
+ * _pow_recursion - find x^y
  *
- * @n: given number
+ * @x: base number
  *
- * Description: find factorial of n using recursion
+ * @y: power of
  *
- * Return: factorial of n
+ * Description: find x^y using factorial
+ *
+ * Return: x^y, -1 if y is negative
  **/
-int factorial(int n)
+int _pow_recursion(int x, int y)
 {
-	if (n < 0)
+	if (y < 0)
 		return (-1);
-
-	if (n == 0)
-	{
+	if (y == 0)
 		return (1);
-	}
-	else
-	{
-		n = factorial(n - 1) * n;
-		return (n);
-	}
+
+	return (x * _pow_recursion(x, y - 1));
 }
