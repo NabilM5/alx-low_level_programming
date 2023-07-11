@@ -31,14 +31,11 @@ int word_count(char *s)
  *
  * @str: string
  *
- * Description: create array of words from string, last element should be null
- *
  * Return: pointer to strings, NULL if fails
  **/
 char **strtow(char *str)
 {
 	int i, k, j, l, num_words = 0, wc = 0;
-
 	char **w;
 
 	if (str == NULL || *str == '\0')
@@ -76,6 +73,6 @@ char **strtow(char *str)
 		}
 		else
 			i++;
-		}
-		return (w);
+	}
+	return (w);
 }
