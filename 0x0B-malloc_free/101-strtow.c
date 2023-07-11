@@ -6,7 +6,7 @@
  * findword - find position of next word
  *
  * @s: string
- * 
+ *
  * Return: position of next word
  **/
 int findword(char *s)
