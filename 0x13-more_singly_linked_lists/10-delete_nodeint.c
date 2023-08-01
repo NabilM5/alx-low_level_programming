@@ -1,3 +1,8 @@
+/*
+ * File: 10-delete_nodeint.c
+ * Auth: Nabil Mouhamech
+ */
+
 #include "lists.h"
 
 /**
