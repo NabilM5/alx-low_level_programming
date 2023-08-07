@@ -1,8 +1,3 @@
-/*
- * File: main.h
- * Auth: Nabil Mouhamech
- */
-
 #ifndef MAIN_H
 #define MAIN_H
 
