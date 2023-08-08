@@ -21,6 +21,55 @@ int safe_close(int description)
 	return (error);
 }
 
+/**
+ * open_file - Opens a file and returns its file descriptor
+ * @filename: The name of the file to open
+ * @flags: The flags to use when opening the file
+ *
+ * Return: The file descriptor on success, exit on failure
+ */
+int open_file(const char *filename, int flags)
+{
+	int fd = open(filename, flags);
+
+	if (fd < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
+		safe_close(fd);
+		exit(98);
+	}
+	return (fd);
+}
+
+/**
+ * read_write_loop - Reads from one file and write to another
+ * @from_fd: The file descriptor to read from
+ * @to_fd: The file descriptor to write to
+ */
+void read_write_loop(int from_fd, int to_fd)
+{
+	char buffer[1024];
+	int bytes_read, error;
+
+	while ((bytes_read = read(from_fd, buffer, sizeof(buffer))) > 0)
+	{
+		error = write(to_fd, buffer, bytes_read);
+		if (error < 0)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to file\n");
+			safe_close(from_fd);
+			safe_close(to_fd);
+			exit(99);
+		}
+	}
+	if (bytes_read < 0)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file\n");
+		safe_close(from_fd);
+		safe_close(to_fd);
+		exit(98);
+	}
+}
 
 /**
  * main - Copies the contents of a file to another file.
@@ -31,8 +80,7 @@ int safe_close(int description)
  */
 int main(int argc, char *argv[])
 {
-	char buffer[1024];
-	int bytes_read = 0, _EOF = 1, from_fd = -1, to_fd = -1, error = 0;
+	int from_fd, to_fd;
 
 	if (argc != 3)
 	{
@@ -41,50 +89,11 @@ int main(int argc, char *argv[])
 	}
 
 	from_fd = open(argv[1], O_RDONLY);
-	if (from_fd < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		exit(98);
-	}
-
 	to_fd = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	if (to_fd < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		safe_close(from_fd);
-		exit(99);
-	}
 
-	while (_EOF)
-	{
-		_EOF = read(from_fd, buffer, 1024);
-		if (_EOF < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			safe_close(from_fd);
-			safe_close(to_fd);
-			exit(98);
-		}
-		else if (_EOF == 0)
-			break;
-		bytes_read += _EOF;
-		error = write(to_fd, buffer, _EOF);
-		if (error < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			safe_close(from_fd);
-			safe_close(to_fd);
-			exit(99);
-		}
-	}
-	error = safe_close(to_fd);
-	if (error < 0)
-	{
-		safe_close(from_fd);
-		exit(100);
-	}
-	error = safe_close(from_fd);
-	if (error < 0)
-		exit(100);
+	read_write_loop(from_fd, to_fd);
+
+	safe_close(from_fd);
+	safe_close(to_fd);
 	return (0);
 }
