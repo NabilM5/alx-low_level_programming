@@ -8,6 +8,7 @@
 /**
  * closes_file - Closes a file.
  * @fil: ELF file.
+ *
  * Return: none.
  */
 void closes_file(int fil)
@@ -21,6 +22,7 @@ void closes_file(int fil)
 /**
  * check_file - Checks if file is ELF.
  * @rem: Remaining file content.
+ *
  * Return: none.
  */
 void check_file(unsigned char *rem)
@@ -36,6 +38,7 @@ void check_file(unsigned char *rem)
 /**
  * print_magic - Prints magic of ELF file.
  * @magic: ELF magic numbers.
+ *
  * Return: none.
  */
 void print_magic(unsigned char *magic)
@@ -53,6 +56,7 @@ void print_magic(unsigned char *magic)
 /**
  * print_class - Printf ELF class.
  * @class: ELF file.
+ *
  * Return: none.
  */
 void print_class(unsigned char *class)
@@ -76,6 +80,7 @@ void print_class(unsigned char *class)
 /**
  * print_data - Print ELF data file.
  * @data: ELF file.
+ *
  * Return: none.
  */
 void print_data(unsigned char *data)
@@ -100,6 +105,7 @@ void print_data(unsigned char *data)
 /**
  * print_version - Prints ELF version file.
  * @version: ELF file.
+ *
  * Return: none.
  */
 void print_version(unsigned char *version)
@@ -120,6 +126,7 @@ void print_version(unsigned char *version)
 /**
  * print_os_abi - Prints ELF OS/ABI file.
  * @o_a: ELF file.
+ *
  * Return: none.
  */
 void print_os_abi(unsigned char *o_a)
@@ -165,6 +172,7 @@ void print_os_abi(unsigned char *o_a)
 /**
  * print_abi - Prinf ELF ABI version file.
  * @abi: ELF file.
+ *
  * Return: none.
  */
 void print_abi(unsigned char *abi)
@@ -176,6 +184,7 @@ void print_abi(unsigned char *abi)
  * print_type - Print ELF type file.
  * @type: ELF type.
  * @class: ELF Class
+ *
  * Return: none.
  */
 void print_type(unsigned int type, unsigned char *class)
@@ -210,6 +219,7 @@ void print_type(unsigned int type, unsigned char *class)
  * print_entry - Print ELF entry.
  * @entry: ELF type.
  * @class: ELF Class
+ *
  * Return: none.
  */
 void print_entry(unsigned long int entry, unsigned char *class)
@@ -234,6 +244,7 @@ void print_entry(unsigned long int entry, unsigned char *class)
  *        start of an ELF file.
  * @ac: Number of arguments passed into the program
  * @av: Array of arguments passed.
+ *
  * Return: 0 on success.
  */
 int main(int ac, char **av)
